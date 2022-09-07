@@ -19,3 +19,5 @@ Imports:
     stringr,
     tibble,
     tidyr
+URL: https://github.com/kswovick/DiannReportGenerator
+BugReports: https://github.com/kswovick/DiannReportGenerator/issues
