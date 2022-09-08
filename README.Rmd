@@ -2,8 +2,6 @@
 output: github_document
 ---
 
-<!-- README.md is generated from README.Rmd. Please edit that file -->
-
 ```{r, include = FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
@@ -15,41 +13,49 @@ knitr::opts_chunk$set(
 
 # DiannReportGenerator
 
-<!-- badges: start -->
+The goal of DiannReportGenerator is to make a new document that contains, for each sample, the "MaxLFQ Intensity" and "Number of Peptides Quantified" for every Protein Group.
 
-<!-- badges: end -->
+Precursors are filtered by both Library Q-Value and Protein Group Library Q-Value at 0.01 and PEP of 0.5, and keratin IDs are removed. After filtering, MaxLFQ-based quantification (<https://doi.org/10.1074/mcp.M113.031591>) is performed. The number of precursors/peptides that were quantified within a given protein group is counted and the data is then tidied to long format where every row corresponds to a protein group (reported as the FASTA accession number) and the rows contain:
 
-The goal of DiannReportGenerator is to make a new document that contains, for each sample, the "MaxLFQ Intensity" and "Number of Peptides Quantified" for every Protein Group
+-   Gene Name
+
+-   Protein Name
+
+-   MaxLFQ Intensity for each sample
+
+-   Number of Peptides for each sample
 
 ## Installation
 
-You can install the development version of DiannReportGenerator like so:
+You can install the development version of DiannReportGenerator from:
 
 ``` r
 #https://github.com/kswovick/DIANN-Report-Generator
 ```
 
-## Example
+Prior to running, the 'DiaNN R Package' developed by the Demichev lab needs to be installed. The package and instructions can be found at:
 
-This is a basic example which shows you how to solve a common problem:
-
-```{r example}
-library(DiannReportGenerator)
-## basic example code
+``` r
+#https://github.com/vdemichev/diann-rpackage
 ```
 
-What is special about using `README.Rmd` instead of just `README.md`? You can include R chunks like so:
+In short, instructions are as follows:
 
-```{r cars}
-summary(cars)
+``` r
+#install.packages("devtools")
+#library(devtools)
+#install_github("https://github.com/vdemichev/diann-rpackage")
+#library(diann)
 ```
 
-You'll still need to render `README.Rmd` regularly, to keep `README.md` up-to-date. `devtools::build_readme()` is handy for this. You could also use GitHub Actions to re-render `README.Rmd` every time you push. An example workflow can be found here: <https://github.com/r-lib/actions/tree/v1/examples>.
+## Instructions
 
-You can also embed plots, for example:
-
-```{r pressure, echo = FALSE}
-plot(pressure)
+``` r
+##library(DiannReportGenerator)
 ```
 
-In that case, don't forget to commit and push the resulting figure files, so they display on GitHub and CRAN.
+Put the name of the main DIA-NN report in quotes, followed by whatever you wish to call the new document in quotes.
+
+``` r
+## diann_reporter("report.tsv", "new_report.tsv")
+```
