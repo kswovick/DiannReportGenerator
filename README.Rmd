@@ -1,16 +1,3 @@
----
-output: github_document
----
-
-```{r, include = FALSE}
-knitr::opts_chunk$set(
-  collapse = TRUE,
-  comment = "#>",
-  fig.path = "man/figures/README-",
-  out.width = "100%"
-)
-```
-
 # DiannReportGenerator
 
 The goal of DiannReportGenerator is to make a new document that contains, for each sample, the "MaxLFQ Intensity" and "Number of Peptides Quantified" for every Protein Group.
@@ -29,33 +16,23 @@ Precursors are filtered by both Library Q-Value and Protein Group Library Q-Valu
 
 You can install the development version of DiannReportGenerator from:
 
-``` r
-#https://github.com/kswovick/DIANN-Report-Generator
-```
+<https://github.com/kswovick/DIANN-Report-Generator>
 
 Prior to running, the 'DiaNN R Package' developed by the Demichev lab needs to be installed. The package and instructions can be found at:
 
-``` r
-#https://github.com/vdemichev/diann-rpackage
-```
+<https://github.com/vdemichev/diann-rpackage>
 
 In short, instructions are as follows:
 
-``` r
-#install.packages("devtools")
-#library(devtools)
-#install_github("https://github.com/vdemichev/diann-rpackage")
-#library(diann)
-```
+    install.packages("devtools")
+    library(devtools)
+    install_github("https://github.com/vdemichev/diann-rpackage")
+    library(diann)
 
 ## Instructions
 
-``` r
-##library(DiannReportGenerator)
-```
+    library(DiannReportGenerator)
 
 Put the name of the main DIA-NN report in quotes, followed by whatever you wish to call the new document in quotes.
 
-``` r
-## diann_reporter("report.tsv", "new_report.tsv")
-```
+    diann_reporter("report.tsv", "new_report.tsv")
